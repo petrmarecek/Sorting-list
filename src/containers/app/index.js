@@ -11,7 +11,7 @@ import SortingListContent from '../../contents/sorting-list-content'
 
 // styles
 import styled from 'styled-components'
-import { colors } from '../../components/styled-components-mixins'
+import { fontFamily, colors } from '../../components/styled-components-mixins'
 
 const Wrapper = styled.div`
   position: absolute;
@@ -20,6 +20,7 @@ const Wrapper = styled.div`
   left: 0;
   bottom: 0;
   background-color: ${colors.graySecondary};
+  ${fontFamily}
 `
 
 const App = props => (

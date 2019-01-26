@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 // styles
 import styled from 'styled-components'
-import { colors, borderRadius } from '../styled-components-mixins'
+import { fontPrimary, colors, borderRadius } from '../styled-components-mixins'
 
 const Item = styled.li`
   display: flex;
@@ -16,6 +16,7 @@ const Item = styled.li`
   margin: 10px 0;
   list-style-type: none;
   ${borderRadius('5px')}
+  ${fontPrimary}
 `
 
 const SortingListItem = ({ value }) => <Item>{value}</Item>

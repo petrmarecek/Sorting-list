@@ -5,7 +5,11 @@ import { stringValidation } from '../../utils/form-validation'
 
 // styles
 import styled from 'styled-components'
-import { colors, placeholderColor } from '../styled-components-mixins'
+import {
+  fontSecondary,
+  colors,
+  placeholderColor,
+} from '../styled-components-mixins'
 
 const Wrapper = styled.div`
   display: flex;
@@ -20,9 +24,6 @@ const Form = styled.form`
 `
 
 const Input = styled.input`
-  font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
-  font-weight: 300;
-  font-size: 36px;
   height: 32px;
   padding: 10px;
   border-top: none;
@@ -35,6 +36,7 @@ const Input = styled.input`
   ${placeholderColor(props =>
     props.error ? colors.redPrimary : colors.grayPrimary
   )}
+  ${fontSecondary}
 `
 
 const InputPrimary = ({ value, error, handleChange, handleSubmit }) => (
