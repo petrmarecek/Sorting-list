@@ -32,11 +32,23 @@ const App = props => (
 App.propTypes = {
   list: PropTypes.object,
   addValue: PropTypes.func,
+  handleCheck: PropTypes.func,
 }
 
 export default withStateHandlers(() => ({ list: List() }), {
+  handleCheck: ({ list }) => (index, isChecked) => {
+    const updateList = list.update(index, item => ({
+      value: item.value,
+      isNumber: item.isNumber,
+      isChecked,
+    }))
+    const sortingList = mergeSort(updateList)
+
+    return { list: sortingList }
+  },
   addValue: ({ list }) => value => {
-    const unSortingList = list.unshift(value)
+    const data = { value, isNumber: !isNaN(value), isChecked: false }
+    const unSortingList = list.unshift(data)
     const sortingList = mergeSort(unSortingList)
 
     return { list: sortingList }

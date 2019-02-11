@@ -16,13 +16,13 @@ const Wrapper = styled.div`
   height: 100%;
 `
 
-const SortingListContent = ({ list, addValue }) => (
+const SortingListContent = ({ list, addValue, handleCheck }) => (
   <Wrapper>
     <TopPanel>
       <InputPrimary addValue={addValue} />
     </TopPanel>
     <CenterPanel>
-      <SortingList list={list} />
+      <SortingList list={list} onCheck={handleCheck} />
     </CenterPanel>
   </Wrapper>
 )
@@ -30,6 +30,7 @@ const SortingListContent = ({ list, addValue }) => (
 SortingListContent.propTypes = {
   list: PropTypes.object,
   addValue: PropTypes.func,
+  handleCheck: PropTypes.func,
 }
 
 export default SortingListContent

@@ -19,11 +19,18 @@ export const fontSecondary = css`
 export const colors = {
   grayPrimary: '#9e9e9e',
   graySecondary: '#e8e8e8',
+  grayTertiary: '#c9c9c9',
   redPrimary: '#e02a2a',
   whitePrimary: '#fff',
 }
 
 /*------------------------------ mixins ------------------------------*/
+export const boxSizing = value => css`
+  -webkit-box-sizing: ${value};
+  -moz-box-sizing: ${value};
+  box-sizing: ${value};
+`
+
 export const borderRadius = value => css`
   -webkit-border-radius: ${value};
   -moz-border-radius: ${value};

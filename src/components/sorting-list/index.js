@@ -15,16 +15,17 @@ const List = styled.ul`
   overflow: auto;
 `
 
-const SortingList = ({ list }) => (
+const SortingList = ({ list, onCheck }) => (
   <List>
-    {list.map((value, i) => (
-      <SortingListItem key={i} value={value} />
+    {list.map((item, i) => (
+      <SortingListItem key={i} index={i} item={item} onCheck={onCheck} />
     ))}
   </List>
 )
 
 SortingList.propTypes = {
   list: PropTypes.object,
+  onCheck: PropTypes.func,
 }
 
 export default SortingList

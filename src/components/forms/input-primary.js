@@ -15,10 +15,12 @@ const Wrapper = styled.div`
   display: flex;
   align-items: flex-end;
   height: 100%;
-  widht: 500px;
+  width: 500px;
 `
 
 const Form = styled.form`
+  display: flex;
+  justify-content: center;
   width: 100%;
   margin: 0 0 25px;
 `
