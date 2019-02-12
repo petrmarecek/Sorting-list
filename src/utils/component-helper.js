@@ -17,7 +17,6 @@ function merge(leftList, rightList) {
   let indexLeft = 0
   let indexRight = 0
 
-  // sorting items of list
   while (indexLeft < leftList.size && indexRight < rightList.size) {
     const leftItem = leftList.get(indexLeft)
     const rightItem = rightList.get(indexRight)
@@ -33,27 +32,18 @@ function merge(leftList, rightList) {
     }
   }
 
-  // concat sorting left and right side of list
   return result.concat(leftList.slice(indexLeft)).concat(rightList.slice(indexRight))
 }
 
 function comparatorChecked(leftItem, rightItem) {
   if (leftItem.isChecked && rightItem.isChecked) {
-    const numberSorting = comparatorNumber(leftItem, rightItem)
-    const valueSorting = comparatorValue(leftItem, rightItem)
+    const numberCmp = comparatorNumber(leftItem, rightItem)
+    const valueCmp = comparatorValue(leftItem, rightItem)
 
-    return numberSorting !== null ? numberSorting : valueSorting
+    return numberCmp !== null ? numberCmp : valueCmp
   }
 
-  if (rightItem.isChecked) {
-    return 1
-  }
-
-  if (leftItem.isChecked) {
-    return -1
-  }
-
-  return null
+  return rightItem.isChecked ? 1 : leftItem.isChecked ? -1 : null
 }
 
 function comparatorNumber(leftItem, rightItem) {
@@ -64,15 +54,7 @@ function comparatorNumber(leftItem, rightItem) {
     return comparatorValue(leftItem, rightItem)
   }
 
-  if (rightItem.isNumber) {
-    return 1
-  }
-
-  if (leftItem.isNumber) {
-    return -1
-  }
-
-  return null
+  return rightItem.isNumber ? 1 : leftItem.isNumber ? -1 : null
 }
 
 function comparatorValue(leftItem, rightItem) {
@@ -84,13 +66,9 @@ function comparatorValue(leftItem, rightItem) {
 }
 
 function comparator(leftItem, rightItem) {
-  const checkedSorting = comparatorChecked(leftItem, rightItem)
-  const numberSorting = comparatorNumber(leftItem, rightItem)
-  const valueSorting = comparatorValue(leftItem, rightItem)
+  const checkedCmp = comparatorChecked(leftItem, rightItem)
+  const numberCmp = comparatorNumber(leftItem, rightItem)
+  const valueCmp = comparatorValue(leftItem, rightItem)
 
-  return checkedSorting !== null
-    ? checkedSorting
-    : numberSorting !== null
-    ? numberSorting
-    : valueSorting
+  return checkedCmp !== null ? checkedCmp : numberCmp !== null ? numberCmp : valueCmp
 }
